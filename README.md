@@ -13,41 +13,12 @@ The basic concept is as follows:
 ![](./images/rls_concept.png)
 
 ## Algorithm
-For the algorithm we introduce the following variables:
-
-- the data $\{ (x_1, y_1), ..., (x_n, y_n) \}$
-
-- $\beta$: the predicted parameters
-
-- $H$: estimation matrix
-
-- $S$: temporary variables to calculate $K$
-
-- $K$: Kalman gain
-
-- $P$: covariance matrix
-
-- $\lambda$: forgetting factor with $0 < \lambda \leq 1$
-
-- $\delta$: initial value for P
-
-The equations for one prediction step:
-
-- $H_k = (1, x_k)$
-
-- $S_k = \lambda  + H_k P_{k-1} H_k^T$
-
-- $K_k = P_{k-1} H_k^T S_k^{-1}$
-
-- $\beta_k = \beta_{k-1} + K_k (y_k - H_k \beta_{k-1})$
-
-- $P_k = \lambda^{-1} ( P_{k-1} - K_k S_k K_k^T)$
-
+![](./images/equations.png)
 
 **Initial values:**  
-The initial value for $\beta$ is often set 
-to 0, with $\delta$ we can adjust our trust in that value.  
-A high $\delta$ (typically around 100) implies low trust. 
+The initial value for beta is often set 
+to 0, with delta we can adjust our trust in that value.  
+A high delta (typically around 100) implies low trust. 
 
 
 ## Examples
