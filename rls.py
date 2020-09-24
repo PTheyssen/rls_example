@@ -25,7 +25,7 @@ def batch_ls(s, dim, data_x, data_y, ridge_factor=None):
     return np.linalg.solve(h_t_h, h.T @ data_y)
 
 
-def rls(s, dim, data_x, data_y, f, sigma):
+def rls(s, dim, data_x, data_y, f, delta):
     """
     Recursive Least Squared Regression
 
@@ -34,13 +34,13 @@ def rls(s, dim, data_x, data_y, f, sigma):
     data_x : points at which measurement was observed
     data_y : observed measurements
     f : forgetting factor usually between 0.95 and 1
-    sigma : used to initialize first p matrix
+    delta : used to initialize first p matrix
     """
     parameters = []
 
     # initialize values
     par_prev = np.zeros(dim).reshape(dim,1)  # or random values
-    p_prev = np.eye(dim) * sigma
+    p_prev = np.eye(dim) * delta
 
     # create H matrix
     h = np.vstack([np.ones(s), data_x]).T
