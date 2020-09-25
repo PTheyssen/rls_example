@@ -23,7 +23,7 @@ A high delta (typically around 100) implies low trust.
 
 ## Examples
 The first example compares batch least squares regression (bls) 
-with RLS using 200 samples.  
+with RLS.  
 ![](./images/rls_lin.png)
 
 
